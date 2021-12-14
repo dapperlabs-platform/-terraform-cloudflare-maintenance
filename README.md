@@ -40,6 +40,12 @@ Description: n/a
 
 Type: `string`
 
+### <a name="input_name"></a> [name](#input\_name)
+
+Description: The Cloudflare worker name.
+
+Type: `string`
+
 ### <a name="input_patterns"></a> [patterns](#input\_patterns)
 
 Description: The DNS pattern list to deploy the maintenance page to.

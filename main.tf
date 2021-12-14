@@ -1,5 +1,5 @@
 resource "cloudflare_worker_script" "this" {
-  name = format("maintenance-%s", replace(var.cloudflare_zone, ".", "-"))
+  name = var.name
   content = templatefile("${path.module}/maintenance.js", {
     content = var.template
   })
