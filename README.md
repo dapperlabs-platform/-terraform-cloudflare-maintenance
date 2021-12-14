@@ -56,9 +56,9 @@ Type: `string`
 
 The following input variables are optional (have default values):
 
-### <a name="input_approvelist_ips"></a> [approvelist\_ips](#input\_approvelist\_ips)
+### <a name="input_allowlist_ips"></a> [allowlist\_ips](#input\_allowlist\_ips)
 
-Description: The IPs that are approve listed to bypass the maintenance page.
+Description: The IPs that are allowed to bypass the maintenance page.
 
 Type: `string`
 

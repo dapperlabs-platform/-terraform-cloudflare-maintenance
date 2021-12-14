@@ -18,8 +18,8 @@ variable "enabled" {
   description = "Flag to create/delete the worker route."
 }
 
-variable "approvelist_ips" {
+variable "allowlist_ips" {
   default     = "placeholder"
-  description = "The IPs that are approve listed to bypass the maintenance page."
+  description = "The IPs that are allowed to bypass the maintenance page."
   type        = string
 }

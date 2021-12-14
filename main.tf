@@ -4,8 +4,8 @@ resource "cloudflare_worker_script" "this" {
     content = var.template
   })
   plain_text_binding {
-    name = "APPROVELIST_IPS"
-    text = var.approvelist_ips
+    name = "ALLOWLIST_IPS"
+    text = var.allowlist_ips
   }
 }
 
