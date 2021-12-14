@@ -1,23 +1,31 @@
-const allowlist = ALLOWLIST_IPS.split(',');
+const allowlist = '${allowlistIPs}'.split(',');
+const redirectURL = '${redirectURL}';
+const statusCode = '${statusCode}';
+const body = `${body}`;
 
-addEventListener("fetch", event => {
-    event.respondWith(fetchAndReplace(event.request))
-})
+const modifiedHeaders = new Headers([
+  ['Content-Type', 'text/html'],
+  ['Pragma', 'no-cache'],
+]);
 
-async function fetchAndReplace(request) {
-    let modifiedHeaders = new Headers()
-    modifiedHeaders.set('Content-Type', 'text/html')
-    modifiedHeaders.append('Pragma', 'no-cache')
+addEventListener('fetch', (event) => {
+  event.respondWith(handleRequest(event.request));
+});
 
-    //Allow users from trusted into site
-    if (allowlist.indexOf(request.headers.get("cf-connecting-ip")) > -1) {
-        return fetch(request)
-    } else { //Return maintanence for all other users
-        return new Response(body, {
-            status: 503,
-            headers: modifiedHeaders
-        })
-    }
+async function handleRequest(request) {
+  // Allow users from trusted into site
+  if (allowlist.includes(request.headers.get('cf-connecting-ip'))) {
+    return fetch(request);
+  }
+
+  // Redirect to external maintenance page if url is set
+  if (redirectURL) {
+    return Response.redirect(redirectURL, 307);
+  }
+
+  // Return maintenance html
+  return new Response(body, {
+    status: statusCode,
+    headers: modifiedHeaders,
+  });
 }
-
-const body = `${content}`;
