@@ -1,12 +1,11 @@
 resource "cloudflare_worker_script" "this" {
   name = var.name
   content = templatefile("${path.module}/maintenance.js", {
-    content = var.template
+    body         = var.body
+    redirectURL  = var.redirect_url
+    allowlistIPs = join(",", var.allowlist_ips)
+    statusCode   = var.http_ok_status_code ? 200 : 503
   })
-  plain_text_binding {
-    name = "ALLOWLIST_IPS"
-    text = var.allowlist_ips
-  }
 }
 
 data "cloudflare_zones" "this" {
