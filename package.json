@@ -1,0 +1,26 @@
+{
+  "name": "terraform-cloudflare-maintenance",
+  "version": "0.1.0",
+  "description": "Cloudflare zone maintenance page leveraging Cloudflare workers.",
+  "main": "maintenance.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dapperlabs-platform/terraform-cloudflare-maintenance.git"
+  },
+  "author": "Adin Hodovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dapperlabs-platform/terraform-cloudflare-maintenance/issues"
+  },
+  "homepage": "https://github.com/dapperlabs-platform/terraform-cloudflare-maintenance#readme"
+}
