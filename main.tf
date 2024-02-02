@@ -1,5 +1,6 @@
 resource "cloudflare_worker_script" "this" {
-  name = var.name
+  account_id = var.account_id
+  name       = var.name
   content = templatefile("${path.module}/maintenance.js", {
     body         = var.body
     redirectURL  = var.redirect_url
