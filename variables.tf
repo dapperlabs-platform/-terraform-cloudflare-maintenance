@@ -1,3 +1,7 @@
+variable "account_id" {
+  type        = string
+  description = "The Cloudflare account ID."
+}
 variable "allowlist_ips" {
   description = "The IPs that are allowed to bypass the maintenance page."
   type        = list(string)
